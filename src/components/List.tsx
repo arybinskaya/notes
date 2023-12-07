@@ -24,7 +24,7 @@ const List = () => {
 
   return (
     <>
-      <Box sx={{ margin: "0px 0px 0px 205px" }}>
+      <Box sx={{ margin: "0 0 0 570px" }}>
         <Typography variant="h5">SELECT TAGS:</Typography>
         {uniqueTags.map((t) => (
           <Button
@@ -47,7 +47,6 @@ const List = () => {
         <Box
           sx={{
             display: "flex",
-            justifyContent: "center",
             flexDirection: "column-reverse",
           }}
         >

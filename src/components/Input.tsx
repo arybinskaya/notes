@@ -1,9 +1,8 @@
 import React from "react";
 import { TextField, Box, Button } from "@mui/material";
-import { useState, useCallback } from "react";
-import { INote, useNotes } from "../store";
+import { useState } from "react";
+import { useNotes } from "../store";
 import { findAllHashtags } from "../helpers";
-import { Stores, addData, getStoreData, initDB } from "../lib/db";
 
 const Input = () => {
   const { setNotes, setTags } = useNotes();
@@ -13,15 +12,6 @@ const Input = () => {
     setText(event.target.value);
   };
 
-  const handleInitDB = async () => {
-    await initDB();
-  };
-
-  const handleGetNotes = useCallback(async () => {
-    const notes = await getStoreData<INote>(Stores.Notes);
-    setNotes(notes);
-  }, [setNotes]);
-
   const onSubmit = async (e: any) => {
     e.preventDefault();
     const newTags = findAllHashtags(text);
@@ -29,16 +19,9 @@ const Input = () => {
       ...prev,
       { id: Math.random().toString(), value: text },
     ]);
-    await addData(Stores.Notes, {
-      id: Math.random().toString(),
-      value: text,
-    });
     setTags((prev) => [...prev, ...newTags]);
-    newTags.forEach(async (i) => {
-      await addData(Stores.Tags, i);
-    });
+    newTags.forEach(async (i) => {});
     setText("");
-    handleGetNotes();
   };
 
   return (
@@ -61,8 +44,6 @@ const Input = () => {
           Enter note
         </Button>
       </Box>
-      <Button onClick={handleInitDB}>init DB</Button>
-      <Button onClick={handleGetNotes}>Get Notes</Button>
     </form>
   );
 };

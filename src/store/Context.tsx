@@ -8,7 +8,6 @@ import {
   useMemo,
 } from "react";
 import { findAllHashtags } from "../helpers";
-import { Stores, deleteData } from "../lib/db";
 
 export interface INote {
   id: string;
@@ -48,9 +47,8 @@ const NoteProvider = ({ children }: NoteProviderProps) => {
   const [tags, setTags] = useState<string[]>([]);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
-  const removeNote = async (id: string) => {
+  const removeNote = (id: string) => {
     const filteredNotes = notes.filter((note) => note.id !== id);
-    await deleteData(Stores.Notes, id);
     setNotes(filteredNotes);
   };
 
