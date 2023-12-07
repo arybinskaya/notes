@@ -1,6 +1,7 @@
 {
   "name": "test-task",
   "version": "0.1.0",
+  "homepage": "https://arybinskaya.github.io/notes",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -13,6 +14,7 @@
     "@types/node": "^16.18.67",
     "@types/react": "^18.2.41",
     "@types/react-dom": "^18.2.17",
+    "gh-pages": "^6.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
