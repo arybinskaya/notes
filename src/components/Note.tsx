@@ -60,7 +60,7 @@ const Note = ({ value, id }: TypeProps) => {
   return (
     <Card
       sx={{
-        maxWidth: 875,
+        width: 875,
         marginBottom: 2,
         backgroundColor: "#ffceb4",
       }}
