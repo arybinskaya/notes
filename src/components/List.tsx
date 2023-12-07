@@ -23,8 +23,10 @@ const List = () => {
   const uniqueTags = getUniqueTags(tags);
 
   return (
-    <>
-      <Box sx={{ margin: "0 0 0 570px" }}>
+    <Box
+      sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+    >
+      <Box sx={{ maxWidth: "900px" }}>
         <Typography variant="h5">SELECT TAGS:</Typography>
         {uniqueTags.map((t) => (
           <Button
@@ -48,6 +50,7 @@ const List = () => {
           sx={{
             display: "flex",
             flexDirection: "column-reverse",
+            alignItems: "center",
           }}
         >
           {notes.map((note: any) => (
@@ -55,7 +58,7 @@ const List = () => {
           ))}
         </Box>
       </Box>
-    </>
+    </Box>
   );
 };
 
